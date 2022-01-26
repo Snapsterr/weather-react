@@ -1,0 +1,20 @@
+.current-city {
+  width: 50%;
+
+  &__info {
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__local-time {
+    margin-top: 5px;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,58 @@
+.select-box {
+  width: 33%;
+  position: relative;
+  user-select: none;
+  margin: 5px 0px 20px 5px;
+
+  &__field {
+    padding: 10px;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    line-height: 18px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 1px solid #fff;
+
+    &-name {
+      flex: 1 1 0;
+    }
+
+    .select-arrow {
+      width: 10%;
+      height: 10%;
+
+      svg {
+        vertical-align: middle;
+        filter: invert(1);
+      }
+    }
+  }
+
+  &__options {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    background: rgb(32, 32, 32);
+  }
+  &__option {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #fff;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: #3d3d3d;
+    }
+  }
+}
