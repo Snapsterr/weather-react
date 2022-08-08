@@ -1,46 +1,104 @@
-.form {
+@import '../../styles/variables.scss';
+
+.search {
   width: 50%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border: 1px solid #000;
-  border-radius: 15px;
+  margin: 50px auto 0px auto;
+
+  &__form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 15px;
+  }
 
   &__field {
-    width: 50%;
+    width: 100%;
+    height: 56px;
     font-size: 17px;
     line-height: 17px;
-    padding: 18px 10px;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    flex: 1 1;
-    background-color: #fff;
+    padding: 17px 10px;
+    background-color: var(#{--search-field-bg-default});
+    color: var(#{--search-field-color-default});
+    border: 1px solid transparent;
     border-radius: 15px 0px 0px 15px;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0s ease, color 0s ease;
 
-    &:focus {
-      border-color: #30abff;
+    &::placeholder {
+      color: var(#{--search-field-placeholder-default});
+    }
+
+    &:hover {
+      border-color: var(#{--search-field-border-hover-default});
+    }
+
+    &:focus  {
+      border-color: var(#{--search-field-border-focus-default});
     }
   }
 
-  &__search {
-    width: 13%;
-    background-color: #444444;
+  &__icon {
+    width: 72px;
+    height: 56px;
+    background-color: var(#{--search-icon-bg-default});
     align-self: center;
-    border: 1px solid rgba(34, 36, 38, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: transparent;
     border-radius: 0px 15px 15px 0px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: #212121;
+      background-color: var(#{--search-icon-hover-default});
     }
+    &:active {
+      background-color: var(#{--search-icon-active-default});
+    }   
 
     svg {
       padding: 5px 10px;
       width: 100%;
       vertical-align: middle;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    width: 65%;
+    margin: 50px auto 20px auto;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .search {
+    width: 75%;
+
+    &__field {
+      height: 46px;
+      font-size: 15px;
+      line-height: 15px;
+      padding: 10px;
+    }
+
+    &__icon {
+      width: 66px;
+      height: 46px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 660px) {
+  .search {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .search {
+    margin: 80px auto 0px auto;
   }
 }

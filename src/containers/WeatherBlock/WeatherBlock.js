@@ -1,40 +1,48 @@
-import React from "react"
-import { useSelector } from "react-redux"
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import CityInfo from "../../components/CityInfo/CityInfo"
-import CurrentDetails from "../../components/CurrentDetails/CurrentDetails"
-import CurrentWeatherInfo from "../../components/CurrentWeatherInfo/CurrentWeatherInfo"
-import ForecastInfo from "../../components/ForecastInfo/ForecastInfo"
+import Details from "../../components/Details/Details"
+import CurrentWeather from "../../components/CurrentWeather/CurrentWeather"
+import Forecast from "../../components/Forecast/Forecast"
+import { controlStorage } from "../../helpers/controlStorage"
 import Loader from "../../UI/Loader/Loader"
 
 import "./WeatherBlock.scss"
+import Popup from "../../UI/Popup/Popup"
+import { resetStatus } from "../../store/slices/currentWeatherSlice"
 
 const WeatherBlock = () => {
   const { weather, isLoading } = useSelector(
     (state) => state.weeklyWeatherSliceReducer
   )
+  const { status, message } = useSelector(
+    (state) => state.currentWeatherSliceReducer.response
+  )
+  const { tempUnit } = useSelector((state) => state.switchTempUnitReducer)
+  const dispatch = useDispatch()
 
-  const getLocalTime = (dt, timezone) => {
-    let localTime = new Date((dt + timezone) * 1000)
-    let localHours = localTime.getUTCHours()
-    let localMinutes = localTime.getUTCMinutes()
-    return `${localHours < 10 ? "0" : ""}${localHours}:${
-      localMinutes < 10 ? "0" : ""
-    }${localMinutes}`
+  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    Number(status) !== 0 && Number(status) !== 200
+      ? setIsOpen(true)
+      : setIsOpen(false)
+  }, [status])
+
+  const handlePopup = (e) => {
+    setIsOpen(false)
+    dispatch(resetStatus())
   }
 
-  const getDay = (dt, timezone) => {
-    let weekDay = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ]
-    let localTime = new Date((dt + timezone) * 1000)
-    let currentDay = localTime.getUTCDay()
-    return weekDay[currentDay]
+  useEffect(() => {
+    controlStorage.setItem("temp", tempUnit)
+  }, [tempUnit])
+
+  const toFarenheit = (celsius, bool) => {
+    let converted = (celsius * 9) / 5 + 32
+    return converted >= 100 && bool
+      ? converted.toFixed(0)
+      : converted.toFixed(1)
   }
 
   return (
@@ -42,16 +50,17 @@ const WeatherBlock = () => {
       {Object.keys(weather).length !== 0 && !isLoading ? (
         <div className="weather-info__wrapper">
           <div className="weather-info__top">
-            <CurrentWeatherInfo />
-            <CityInfo getLocalTime={getLocalTime} />
+            <CurrentWeather tempUnit={tempUnit} toFarenheit={toFarenheit} />
+            <CityInfo />
           </div>
           <div className="weather-info__bottom">
-            <ForecastInfo getLocalTime={getLocalTime} getDay={getDay} />
-            <CurrentDetails />
+            <Forecast tempUnit={tempUnit} toFarenheit={toFarenheit} />
+            <Details tempUnit={tempUnit} toFarenheit={toFarenheit} />
           </div>
         </div>
       ) : null}
       {isLoading ? <Loader /> : null}
+      {isOpen && <Popup msg={message} handlePopup={handlePopup} />}
     </div>
   )
 }

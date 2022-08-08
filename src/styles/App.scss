@@ -1,0 +1,92 @@
+@import './variables.scss';
+
+@font-face {
+  font-family: "Exo";
+  src: url(../assets/fonts/Exo-Regular.woff) format("woff");
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+a {
+  color: var(#{--text-color-primary-default});
+}
+
+body {
+  margin: 0;
+  font-family: "Exo", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(#{--body-bg-default});
+  color: var(#{--text-color-primary-default});
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(88, 88, 88);
+    outline: 1px solid rgb(50, 56, 61);
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container {
+  width: 1140px;
+  padding: 0px 30px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1200px) {
+    width: 1000px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 960px;
+  }
+
+  @media screen and (min-width: 840px) and (max-width: 968px) {
+    width: 800px;
+    padding: 0px 20px;
+  }
+
+  @media screen and (max-width: 839px) {
+    width: 720px;
+    padding: 0px 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 620px;
+  }
+
+  @media screen and (max-width: 660px) {
+    width: 520px;
+    padding: 0px 10px;
+  }
+
+  @media screen and (max-width: 540px) {
+    width: 440px;
+  }
+
+  @media screen and (max-width: 460px) {
+    width: 380px;
+  }
+
+  @media screen and (max-width: 393px) {
+    width: 320px;
+  }
+}

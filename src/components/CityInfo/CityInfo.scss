@@ -18,3 +18,83 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .current-city {
+    &__info {
+      font-size: 54px;
+      line-height: 54px;
+    }
+  
+    &__local-time {
+      font-size: 28px;
+      line-height: 28px;
+    }
+  }
+}
+
+@media screen and (max-width: 839px) {
+  .current-city {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .current-city {
+    width: 100%;
+    order: 1;
+    margin-bottom: 15px;
+
+    &__info {
+      font-size: 60px;
+      line-height: 60px;
+    }
+
+    &__local-time {
+      font-size: 28px;
+      line-height: 28px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .current-city {
+    &__info {
+      font-size: 54px;
+      line-height: 54px;
+    }
+
+    &__local-time {
+      font-size: 25px;
+      line-height: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .current-city {
+    &__info {
+      font-size: 48px;
+      line-height: 48px;
+    }
+
+    &__local-time {
+      font-size: 22px;
+      line-height: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 393px) {
+  .current-city {
+    &__info {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    &__local-time {
+      font-size: 18px;
+      line-height: 18px;
+    }
+  }
+}

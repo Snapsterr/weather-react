@@ -1,11 +1,15 @@
 import React from "react"
 import { useSelector } from "react-redux"
+import { time } from "../../helpers/time"
 
 import "./CityInfo.scss"
 
-const CityInfo = ({ getLocalTime }) => {
+const CityInfo = () => {
   const { cityName, cityCountry } = useSelector(
     (state) => state.currentWeatherSliceReducer
+  )
+  const isTimeChecked = useSelector(
+    (state) => state.switchParamsReducer.isTimeChecked
   )
 
   const { weather } = useSelector((state) => state.weeklyWeatherSliceReducer)
@@ -18,10 +22,12 @@ const CityInfo = ({ getLocalTime }) => {
         {cityName}, {cityCountry}
       </div>
       <div className="current-city__local-time">
-        {getLocalTime(dt, timezone_offset)}
+        {isTimeChecked
+          ? time.getUSTime(dt, timezone_offset, true)
+          : time.getEUTime(dt, timezone_offset, true)}
       </div>
     </div>
   )
 }
 
-export default CityInfo
+export default React.memo(CityInfo)

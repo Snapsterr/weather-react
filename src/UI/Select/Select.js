@@ -3,11 +3,9 @@ import React, { useState } from "react"
 import "./Select.scss"
 
 const Select = ({ options, value, onChangeValue }) => {
-  console.log(value)
   const [isActive, setIsActive] = useState(false)
 
   const handleChange = (e) => {
-    console.log(e.currentTarget.value)
     setIsActive(!isActive)
   }
 
@@ -51,4 +49,4 @@ const Select = ({ options, value, onChangeValue }) => {
   )
 }
 
-export default Select
+export default React.memo(Select)

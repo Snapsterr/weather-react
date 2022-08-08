@@ -2,7 +2,7 @@ import React from "react"
 import Header from "./containers/Header/Header"
 import WeatherBlock from "./containers/WeatherBlock/WeatherBlock"
 
-import "./App.scss"
+import "./styles/App.scss"
 
 const App = () => {
   return (

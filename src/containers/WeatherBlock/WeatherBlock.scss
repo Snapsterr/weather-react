@@ -1,5 +1,5 @@
 .weather-info {
-  margin-top: 30px;
+  margin-top: 45px;
   width: 100%;
 
   &__wrapper {
@@ -21,8 +21,44 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    // padding: 0px 0px 20px 0px;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .weather-info {
+    margin-top: 50px;
+
+    &__bottom {
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 839px) {
+  .weather-info {
+    margin-top: 35px;
+
+    &__bottom {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .weather-info {
+    &__top {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .weather-info {
+    &__bottom {
+      margin-top: 20px;
+    }
   }
 }

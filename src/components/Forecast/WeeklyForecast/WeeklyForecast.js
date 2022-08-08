@@ -1,8 +1,9 @@
 import React from "react"
+import { time } from "../../../helpers/time"
 
-import "./WeeklyForecastInfo.scss"
+import "./WeeklyForecast.scss"
 
-const WeeklyForecastInfo = ({ weather, getDay }) => {
+const WeeklyForecast = ({ weather, tempUnit, toFarenheit }) => {
   const { daily } = weather
 
   return (
@@ -18,22 +19,27 @@ const WeeklyForecastInfo = ({ weather, getDay }) => {
         {daily.map((day, id) => {
           return (
             <div className="weekly-forecast__wrapper" key={id} id={id}>
-              <div className="weekly-forecast__day">
-                {getDay(day.dt, weather.timezone_offset)}
+              <div className="weekly-forecast__param weekly-forecast__param--day">
+                {time.getDay(day.dt, weather.timezone_offset)}
               </div>
               <div className="weekly-forecast__clouds">
                 <img
-                  className="item__icon"
                   src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
                   alt={day.weather[0].description}
                 />
               </div>
-              <div className="weekly-forecast__humidity">{day.humidity}%</div>
-              <div className="weekly-forecast__max-temp">
-                {day.temp.max.toFixed(1)}°
+              <div className="weekly-forecast__param">{day.humidity}%</div>
+              <div className="weekly-forecast__param">
+                {tempUnit === "Celsius"
+                  ? day.temp.max.toFixed(1)
+                  : toFarenheit(day.temp.max)}
+                °
               </div>
-              <div className="weekly-forecast__min-temp">
-                {day.temp.min.toFixed(1)}°
+              <div className="weekly-forecast__param">
+                {tempUnit === "Celsius"
+                  ? day.temp.min.toFixed(1)
+                  : toFarenheit(day.temp.min)}
+                °
               </div>
             </div>
           )
@@ -43,4 +49,4 @@ const WeeklyForecastInfo = ({ weather, getDay }) => {
   )
 }
 
-export default WeeklyForecastInfo
+export default React.memo(WeeklyForecast)

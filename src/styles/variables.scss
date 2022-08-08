@@ -1,0 +1,145 @@
+$body-bg-dark: #262428;
+$body-bg-light: #ffffff;
+
+$text-color-primary-dark: #ffffff; 
+$text-color-primary-light: #262428; 
+
+$text-color-additional-dark: #838383; 
+$text-color-additional-light: #b1b0b0; 
+
+$info-card-bg-dark: rgba(14, 16, 28, 0.4);
+$info-card-bg-light: rgba(151, 151, 151, 0.4);
+
+$options-bg-dark: #202020;
+$options-bg-light: #b8b2e9;
+
+$options-bg-hover-dark: #3d3d3d;
+$options-bg-hover-light: #9b96c9;
+
+$current-stat-bg-dark: rgba(20, 19, 19, 0.8);
+$current-stat-bg-light: rgba(188, 192, 221, 0.8);
+
+$border-primary-dark: 1px solid #ffffff;
+$border-primary-light: 1px solid #000;
+
+$icons-color-dark: invert(1);
+$icons-color-light: invert(0);
+
+$icon-bg-dark: transparent;
+$icon-bg-light: rgba(151, 151, 151, 0.35);
+
+$search-field-bg-dark: rgba(255, 255, 255, 0.25);
+$search-field-bg-light: rgba(151, 151, 151, 0.2);
+
+$search-field-color-dark: rgba(255, 255, 255, 0.6);
+$search-field-color-light: rgba(0, 0, 0, 0.9);
+
+$search-field-placeholder-dark: rgba(255, 255, 255, 0.25);
+$search-field-placeholder-light: rgba(0, 0, 0, 0.5);
+
+$search-field-border-hover-dark: #939393;
+$search-field-border-hover-light: #4e4e4e;
+
+$search-field-border-focus-dark: #007db9;
+$search-field-border-focus-light: #399ecf;
+
+$search-icon-bg-dark: #3a3a3a;
+$search-icon-bg-light: #686868;
+
+$search-icon-hover-dark: #343434;
+$search-icon-hover-light: #505050;
+
+$search-icon-active-dark: #302f2f;;
+$search-icon-active-light: #444444;
+
+:root {
+  // body-background
+  --body-bg-dark: #{$body-bg-dark};
+  --body-bg-light: #{$body-bg-light};
+  --body-bg-default: #{$body-bg-dark};
+
+  // text-color-primary
+  --text-color-primary-dark: #{$text-color-primary-dark};
+  --text-color-primary-light: #{$text-color-primary-light};
+  --text-color-primary-default: #{$text-color-primary-dark};
+
+  // text-color-additional
+  --text-color-additional-dark: #{$text-color-additional-dark};
+  --text-color-additional-light: #{$text-color-additional-light};
+  --text-color-additional-default: #{$text-color-additional-dark};
+
+  // info-card-background-color
+  --info-card-bg-dark: #{$info-card-bg-dark};
+  --info-card-bg-light: #{$info-card-bg-light};
+  --info-card-bg-default: #{$info-card-bg-dark};
+
+  // options-background-color
+  --options-bg-dark: #{$options-bg-dark};
+  --options-bg-light: #{$options-bg-light};
+  --options-bg-default: #{$options-bg-dark};
+
+  // options-background-color-hover
+  --options-bg-hover-dark: #{$options-bg-hover-dark};
+  --options-bg-hover-light: #{$options-bg-hover-light};
+  --options-bg-hover-default: #{$options-bg-hover-dark};
+  
+  // current-stat-backgrounc-color
+  --current-stat-bg-dark: #{$current-stat-bg-dark};
+  --current-stat-bg-light: #{$current-stat-bg-light};
+  --current-stat-bg-default: #{$current-stat-bg-dark};
+
+  // borded
+  --border-primary-dark: #{$border-primary-dark};
+  --border-primary-light: #{$border-primary-light};
+  --border-primary-default: #{$border-primary-dark};
+
+  // icons-color
+  --icons-color-dark: #{$icons-color-dark};
+  --icons-color-light: #{$icons-color-light};
+  --icons-color-default: #{$icons-color-dark};
+
+  // icons-background-color
+  --icon-bg-dark: #{$icon-bg-dark};
+  --icon-bg-light: #{$icon-bg-light};
+  --icon-bg-default: #{$icon-bg-dark};
+
+  // search-field-background
+  --search-field-bg-dark: #{$search-field-bg-dark};
+  --search-field-bg-light: #{$search-field-bg-light};
+  --search-field-bg-default: #{$search-field-bg-dark};
+
+  // search-field-color
+  --search-field-color-dark: #{$search-field-color-dark};
+  --search-field-color-light: #{$search-field-color-light};
+  --search-field-color-default: #{$search-field-color-dark};
+
+  // search-field-placeholder
+  --search-field-placeholder-dark: #{$search-field-placeholder-dark};
+  --search-field-placeholder-light: #{$search-field-placeholder-light};
+  --search-field-placeholder-default: #{$search-field-placeholder-dark};
+
+  // search-field-border-hover
+  --search-field-border-hover-dark: #{$search-field-border-hover-dark};
+  --search-field-border-hover-light: #{$search-field-border-hover-light};
+  --search-field-border-hover-default: #{$search-field-border-hover-dark};
+
+  // search-field-border-focus
+  --search-field-border-focus-dark: #{$search-field-border-focus-dark};
+  --search-field-border-focus-light: #{$search-field-border-focus-light};
+  --search-field-border-focus-default: #{$search-field-border-focus-dark};
+
+  // search-icon-background
+  --search-icon-bg-dark: #{$search-icon-bg-dark};
+  --search-icon-bg-light: #{$search-icon-bg-light};
+  --search-icon-bg-default: #{$search-icon-bg-dark};
+
+  // search-icon-hover
+  --search-icon-hover-dark: #{$search-icon-hover-dark};
+  --search-icon-hover-light: #{$search-icon-hover-light};
+  --search-icon-hover-default: #{$search-icon-hover-dark};
+
+  // search-icon-active
+  --search-icon-active-dark: #{$search-icon-active-dark};
+  --search-icon-active-light: #{$search-icon-active-light};
+  --search-icon-active-default: #{$search-icon-active-dark};
+}

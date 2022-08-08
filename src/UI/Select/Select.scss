@@ -1,23 +1,24 @@
+@import '../../styles/variables.scss';
+
 .select-box {
-  width: 33%;
+  width: 155px;
   position: relative;
   user-select: none;
   margin: 5px 0px 20px 5px;
 
   &__field {
-    padding: 10px;
-    background: transparent;
-    color: #fff;
     display: flex;
-    font-size: 18px;
-    line-height: 18px;
     align-items: center;
+    padding: 14px 10px 10px 10px;
     justify-content: space-between;
+    border-bottom: var(#{--border-primary-default});
+    background: transparent;
+    transition: border-bottom 0.2s ease;
     cursor: pointer;
-    border-bottom: 1px solid #fff;
 
     &-name {
-      flex: 1 1 0;
+      font-size: 18px;
+      line-height: 18px;
     }
 
     .select-arrow {
@@ -26,7 +27,8 @@
 
       svg {
         vertical-align: middle;
-        filter: invert(1);
+        filter: var(#{--icons-color-default});
+        transition: filter 0.2s ease;
       }
     }
   }
@@ -36,23 +38,70 @@
     top: 105%;
     left: 0;
     width: 100%;
-    color: #fff;
     font-size: 16px;
     line-height: 16px;
-    background: rgb(32, 32, 32);
+    background: var(#{--options-bg-default});
+    transition: background 0.2s ease;
   }
   &__option {
     padding: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border-bottom: 1px solid #fff;
+    border-bottom: var(#{--border-primary-default});
+    transition: border-bottom 0.2s ease;
 
     &:last-child {
       border-bottom: none;
     }
 
     &:hover {
-      background: #3d3d3d;
+      background: var(#{--options-bg-hover-default});
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .select-box {
+    width: 140px;
+
+    &__field {
+      &-name {
+        font-size: 16px;
+        line-height: 16px;
+      }
+
+      .select-arrow {
+        width: 9%;
+        height: 9%;
+      }
+    }
+    &__options {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 393px) {
+  .select-box {
+    width: 128px;
+    margin: 5px 0px 14px 5px;
+
+    &__field {
+      padding: 14px 10px 6px 6px;
+      &-name {
+        font-size: 14px;
+        line-height: 14px;
+      }
+
+      .select-arrow {
+        width: 9%;
+        height: 9%;
+      }
+    }
+    &__options {
+      font-size: 12px;
+      line-height: 12px;
     }
   }
 }

@@ -33,11 +33,19 @@ export const currentWeatherSlice = createSlice({
     fetchCurrentWeatherError(state, action) {
       state.isLoading = false
       state.response = {
-        status: action.payload.status,
-        message: action.payload.statusText,
+        status: action.payload.cod,
+        message: action.payload.message,
+      }
+    },
+    resetStatus(state) {
+      state.response = {
+        status: 0,
+        message: "",
       }
     },
   },
 })
+
+export const resetStatus = currentWeatherSlice.actions.resetStatus
 
 export default currentWeatherSlice.reducer

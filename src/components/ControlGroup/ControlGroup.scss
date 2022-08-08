@@ -1,0 +1,19 @@
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  & > .toggle:not(:last-child) {
+    margin-right: 10px;;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .controls {
+    flex-direction: column;
+
+    & > .toggle:not(:last-child) {
+      margin-right: 0px;;
+    }
+  }
+}
