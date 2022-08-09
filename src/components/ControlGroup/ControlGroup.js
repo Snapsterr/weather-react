@@ -10,7 +10,6 @@ import "./ControlGroup.scss"
 const HeaderControls = () => {
   const dispatch = useDispatch()
 
-  // const isEUTime = useSelector((state) => state.switchParamsReducer.isEUTime)
   const { time, isTimeChecked, theme, isThemeChecked } = useSelector(
     (state) => state.switchParamsReducer
   )

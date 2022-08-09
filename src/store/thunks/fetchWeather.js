@@ -1,5 +1,4 @@
 import { WeatherService } from "../../services/WeatherService"
-// import Popup from "../../UI/Popup/Popup"
 import { currentWeatherSlice } from "../slices/currentWeatherSlice"
 import { weeklyWeatherSlice } from "../slices/weeklyWeatherSlice"
 
@@ -23,10 +22,8 @@ export const fetchWeather = (payload) => async (dispatch) => {
       dispatch(weeklyWeatherSlice.actions.fetchWeeklyWeatherError(res2))
     }
   } catch (error) {
-    console.log(error.response.data)
     dispatch(
       currentWeatherSlice.actions.fetchCurrentWeatherError(error.response.data)
     )
-    // return <Popup msg={error} />
   }
 }
